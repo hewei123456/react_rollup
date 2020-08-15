@@ -1,5 +1,4 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
 import { Button, Row, Col, Divider, Input, Empty, Menu, Modal } from 'antd'
 import BraftEditor from 'braft-editor'
 import 'braft-editor/dist/index.css'
@@ -10,7 +9,7 @@ import { filesUndo, filesRedo, updateFileContent, deleteFile, clearFileList } fr
 
 import './index.less'
 
-const Operation = ({ undo, redo, updateFileContent, deleteFile, clearFileList, files }) => {
+const File = ({ undo, redo, updateFileContent, deleteFile, clearFileList, files }) => {
   const [...fileList] = files.values()
 
   /* -------hooks------- */
@@ -151,4 +150,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Operation))
+export default connect(mapStateToProps, mapDispatchToProps)(File)
