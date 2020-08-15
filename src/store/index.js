@@ -4,6 +4,7 @@ import reducer from './reducer'
 import { persistStore, persistReducer } from 'redux-persist'
 import immutableTransform from 'redux-persist-transform-immutable'
 import storage from 'redux-persist/es/storage/session'
+import { createLogger } from 'redux-logger'
 
 const composeEnhancers =
   typeof window === 'object' &&
@@ -15,7 +16,7 @@ const middlewares = [
 ]
 
 if (process.env.NODE_ENV === 'development') {
-  middlewares.push(require('redux-logger').createLogger())
+  middlewares.push(createLogger())
 }
 
 const enhancer = composeEnhancers(

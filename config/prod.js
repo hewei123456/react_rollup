@@ -7,7 +7,7 @@ import config from './dev'
 
 // Inject the production settings.
 config.output.file = 'build/app.min.js'
-config.plugins[3] = replace({ 'process.env.NODE_ENV': JSON.stringify('production') })
+config.plugins[5] = replace({ 'process.env.NODE_ENV': JSON.stringify('production') })
 config.plugins.push(uglify())
 
 export default config

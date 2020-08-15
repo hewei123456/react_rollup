@@ -6,7 +6,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { connect } from 'react-redux'
 import { setUserInfo } from '@/store/user'
 
-// import './index.less'
+import './index.less'
 
 const Login = ({ setUserInfo, history }) => {
   return (
@@ -69,4 +69,4 @@ export default connect(null, dispatch => {
       dispatch(setUserInfo({ token, roles, username }))
     }
   }
-})(withRouter(Login))
+})(Login)

@@ -1,20 +1,39 @@
 // Rollup plugins.
 import babel from 'rollup-plugin-babel'
-import commonjs from 'rollup-plugin-commonjs'
+import postcss from 'rollup-plugin-postcss'
+import commonjs from '@rollup/plugin-commonjs'
 import autoNamedExports from 'rollup-plugin-auto-named-exports'
 import globals from 'rollup-plugin-node-globals'
 import replace from 'rollup-plugin-replace'
 import resolve from 'rollup-plugin-node-resolve'
 import alias from 'rollup-plugin-alias'
 
+import path from 'path'
+
 export default {
-  input: 'src/index.js',
+  input: './src/index.js',
   output: {
     file: 'build/app.js',
     format: 'iife'
   },
+  external: [
+    {
+      'react': 'react',
+      'react-dom': 'react-dom',
+      'classnames': 'classnames'
+    }
+  ],
   plugins: [
+    postcss({
+      inject: true,
+      modules: false,
+      extensions: ['.css', '.less'],
+      use: [
+        ['less', { javascriptEnabled: true }]
+      ]
+    }),
     babel({
+      babelrc: false,
       exclude: 'node_modules/**',
       presets: [
         [
@@ -38,17 +57,7 @@ export default {
         ]
       ]
     }),
-    commonjs({
-      include: 'node_modules/**',
-      exclude: [
-        'node_modules/process-es6/**'
-      ],
-      namedExports: {
-        'node_modules/react/index.js': ['Children', 'Component', 'PropTypes', 'createElement', 'createContext', 'useRef', 'useState', 'useEffect', 'useMemo'],
-        'node_modules/react-dom/index.js': ['render', 'findDOMNode'],
-        'node_modules/react-is/index.js': ['isFragment', 'isMemo']
-      }
-    }),
+    commonjs(),
     autoNamedExports(),
     globals(),
     replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
@@ -57,7 +66,13 @@ export default {
       main: true
     }),
     alias({
-      '@': require('path').resolve(__dirname, 'src')
+      resolve: ['.jsx', '.js'],
+      entries: [
+        {
+          find: '@',
+          replacement: path.resolve(__dirname, '../src')
+        }
+      ]
     })
   ],
   sourcemap: true
