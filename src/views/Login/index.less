@@ -1,0 +1,37 @@
+@import '~antd/es/style/themes/default.less';
+
+#login-wrapper {
+  width: 100%;
+  min-width: 1200px;
+  background-color: #f0f2f5;
+  background-image: url("../../static/images/background.svg");
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  height: calc(100vh);
+  overflow: hidden;
+  position: relative;
+
+  #login {
+    width: 340px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .ant-input-prefix {
+      color: @disabled-color;
+    }
+
+    .login-title {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, .85);
+    }
+  }
+
+  .logout {
+    margin-left: 20px;
+  }
+}
