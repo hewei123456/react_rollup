@@ -1,6 +1,6 @@
 // Rollup plugins.
 import replace from 'rollup-plugin-replace'
-import { uglify } from 'rollup-plugin-uglify'
+import { terser } from 'rollup-plugin-terser'
 
 // Import the development configuration.
 import config from './rollup.config'
@@ -8,6 +8,6 @@ import config from './rollup.config'
 // Inject the production settings.
 config.output.file = 'build/app.min.js'
 config.plugins[0] = replace({ 'process.env.NODE_ENV': JSON.stringify('production') })
-config.plugins.push(uglify())
+config.plugins.push(terser())
 
 export default config
