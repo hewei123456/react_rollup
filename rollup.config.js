@@ -11,12 +11,6 @@ import alias from 'rollup-plugin-alias'
 
 import path from 'path'
 
-const aliases = {
-  '@': path.resolve(__dirname, 'src')
-}
-
-const NODE_MODULE_PATH = path.resolve('node_modules')
-
 export default {
   input: 'src/index.js',
   output: {
@@ -31,6 +25,7 @@ export default {
     }
   ],
   plugins: [
+    replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
     postcss({
       inject: true,
       modules: false,
@@ -40,9 +35,11 @@ export default {
       ],
       loaders: [
         rollupPostcssLessLoader({
-          nodeModulePath: NODE_MODULE_PATH,
-          aliases: aliases,
-        }),
+          nodeModulePath: path.resolve('node_modules'),
+          aliases: {
+            '@': path.resolve(__dirname, 'src')
+          }
+        })
       ]
     }),
     babel({
@@ -73,7 +70,6 @@ export default {
     commonjs(),
     autoNamedExports(),
     globals(),
-    replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
     resolve({
       browser: true,
       main: true
