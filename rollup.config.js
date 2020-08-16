@@ -56,11 +56,11 @@ export default {
         '@babel/plugin-transform-runtime',
         '@babel/plugin-transform-react-jsx',
         '@babel/plugin-external-helpers',
-        '@babel/plugin-proposal-class-properties',
         [
           '@babel/plugin-proposal-decorators',
           { legacy: true }
         ],
+        '@babel/plugin-proposal-class-properties',
         [
           '@babel/plugin-proposal-object-rest-spread',
           { loose: true }

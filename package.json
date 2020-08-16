@@ -35,6 +35,7 @@
         "rollup-plugin-auto-named-exports": "^1.0.0-beta.3",
         "rollup-plugin-babel": "^4.4.0",
         "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-img": "^1.1.0",
         "rollup-plugin-node-globals": "^1.4.0",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-postcss": "^3.1.5",
@@ -79,7 +80,7 @@
     },
     "scripts": {
         "build:dev": "rollup -c rollup.config.js -w",
-        "browse": "browser-sync start --s --ss build --index index.html --files build/**/*.js --no-notify",
+        "browse": "browser-sync start --s --ss build --index build/index.html --files build/**/*.js --no-notify",
         "start": "npm-run-all --parallel build:dev browse",
         "build": "rollup -c rollup.prod.config.js"
     }

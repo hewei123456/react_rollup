@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { logo } from '@/static'
+
 import { clearUserInfo } from '@/store/user'
 import { connect } from 'react-redux'
 
@@ -12,7 +12,7 @@ const Header = ({ username, clearUserInfo, history }) => (
       <img
         alt="true"
         className="logo-img left"
-        src={logo}
+        src={'./images/logo.png'}
       />
     </div>
 

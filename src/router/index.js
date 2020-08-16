@@ -8,7 +8,7 @@ import menu from './menu'
 import Login from '@/views/Login'
 
 export default () => (
-  <BrowserRouter basename="/react-admin">
+  <HashRouter basename="/react-admin">
     <Switch>
       <Route
         component={Login}
@@ -19,7 +19,7 @@ export default () => (
       }
       <Redirect to="/admin" />
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 )
 
 export { menu }

@@ -2,7 +2,7 @@ import '@babel/polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Scrollbars } from 'react-custom-scrollbars'
-import File from './views/File'
+import Router from '@/router'
 
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -21,7 +21,7 @@ const App = () => (
         <Scrollbars hideTracksWhenNotNeeded>
           <div className="root-container">
             <Scrollbars hideTracksWhenNotNeeded>
-              <File />
+              <Router />
             </Scrollbars>
           </div>
         </Scrollbars>
