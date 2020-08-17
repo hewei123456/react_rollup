@@ -10,6 +10,7 @@
 
 # production
 /dist
+/build/index.js
 /build/*.js
 
 # misc
