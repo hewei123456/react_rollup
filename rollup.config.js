@@ -17,22 +17,10 @@ export default {
     dir: 'build',
     format: 'amd'
   },
-  manualChunks: {
-    vendor: [
-      '@babel/polyfill',
-      'react',
-      'react-dom',
-      'classnames',
-      'react-router-dom',
-      'redux',
-      'redux-thunk',
-      'react-redux', 'redux-persist',
-      'redux-persist-transform-immutable',
-      'redux-logger',
-      'antd',
-      '@ant-design/icons',
-      'react-custom-scrollbars'
-    ]
+  manualChunks (id) {
+    if (id.includes('node_modules')) {
+      return 'vendor'
+    }
   },
   external: [
     {
