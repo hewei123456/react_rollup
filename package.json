@@ -12,7 +12,9 @@
       "category": "com.hewei.electron.app.category.type"
     },
     "files": [
-      "build/**/*"
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json"
     ]
   },
   "devDependencies": {
@@ -37,7 +39,6 @@
     "electron": "^9.0.5",
     "electron-builder": "^22.7.0",
     "less": "^3.12.2",
-    "mammoth": "^1.4.11",
     "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
     "postcss-cssnext": "^3.1.0",
@@ -70,6 +71,7 @@
     "electron-store": "^5.2.0",
     "html-docx-js": "^0.3.1",
     "immutable": "^4.0.0-rc.12",
+    "mammoth": "^1.4.11",
     "nprogress": "^0.2.0",
     "query-string": "^6.13.1",
     "react": "^16.13.1",
@@ -98,6 +100,8 @@
     "build:dev": "rollup -c rollup.config.js -w",
     "start": "npm-run-all --parallel build:dev",
     "build": "rollup -c rollup.prod.config.js",
-    "electron": "nodemon --exec \"electron .\""
+    "electron": "nodemon --exec \"electron .\"",
+    "electron:pack": "electron-builder --dir",
+    "electron:dist": "electron-builder"
   }
 }
