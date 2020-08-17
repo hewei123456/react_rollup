@@ -31,7 +31,7 @@ app.whenReady().then(() => {
         parent: mainWindow,
         modal: true
       },
-      join(__dirname, './views/index.html')
+      join(__dirname, './views/settings/index.html')
     )
 
     settingsWindow.removeMenu()
