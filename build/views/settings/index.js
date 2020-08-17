@@ -1,5 +1,5 @@
-const Vue = require('./lib/vue')
-const $ = require('./lib/jquery')
+const Vue = require('../../lib/vue')
+const $ = require('../../lib/jquery')
 
 var vm = new Vue({
   mounted () {

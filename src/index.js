@@ -15,7 +15,6 @@ import 'braft-editor/dist/index.css'
 import './style/index.less'
 import './index.less'
 
-
 const mapStateToProps = ({ files }) => ({
   files: files.present
 })
