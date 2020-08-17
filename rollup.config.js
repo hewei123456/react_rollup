@@ -3,6 +3,7 @@ import babel from 'rollup-plugin-babel'
 import postcss from 'rollup-plugin-postcss'
 import rollupPostcssLessLoader from 'rollup-plugin-postcss-webpack-alias-less-loader'
 import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
 import autoNamedExports from 'rollup-plugin-auto-named-exports'
 import globals from 'rollup-plugin-node-globals'
 import replace from 'rollup-plugin-replace'
@@ -72,6 +73,7 @@ export default {
         ]
       ]
     }),
+    json(),
     commonjs(),
     autoNamedExports(),
     globals(),

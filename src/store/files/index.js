@@ -53,6 +53,7 @@ export const reducer = (state = defaultState, action) => {
       var id = v4()
       return state.set(id, fromJS({
         id,
+        type: '.docx',
         name: action.name,
         content: ''
       }))

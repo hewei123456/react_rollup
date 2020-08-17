@@ -1,3 +1,5 @@
+@import "~@/style/color.less";
+
 #root {
   height: calc(100vh);
 
@@ -5,5 +7,75 @@
     height: 100%;
     width: 100%;
     min-width: 1200px;
+
+    #file {
+      padding: 20px;
+
+      button {
+        margin-right: 15px;
+      }
+
+      .file-name {
+        cursor: pointer;
+        transition: all .3s linear;
+        color: @primary-color;
+
+        &:hover {
+          color: #65B0FE;
+        }
+      }
+
+      .cm-s-easymde {
+        height: 400px !important;
+      }
+
+      .editor-preview-active {
+        h1 {
+          font-size: 2em;
+          font-weight: bold;
+          margin: 0.67em 0;
+        }
+
+        h2 {
+          font-size: 1.5em;
+          font-weight: bold;
+          margin: 0.83em 0;
+        }
+
+        h3 {
+          font-size: 1.17em;
+          font-weight: bold;
+          margin: 1em 0;
+        }
+
+        p {
+          margin: 1em 0;
+        }
+
+        ul, ol {
+          display: block;
+          list-style-type: disc;
+          padding-left: 40px;
+          margin: 1em 0;
+        }
+
+        ol {
+          list-style-type: decimal;
+        }
+
+        li {
+          display: list-item;
+        }
+
+        blockquote {
+          margin: 1em 40px;
+        }
+
+        pre {
+          margin: 1em 0;
+          white-space: pre;
+        }
+      }
+    }
   }
 }

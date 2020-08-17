@@ -3,8 +3,10 @@ import thunkMiddleware from 'redux-thunk'
 import reducer from './reducer'
 import { persistStore, persistReducer } from 'redux-persist'
 import immutableTransform from 'redux-persist-transform-immutable'
-import storage from 'redux-persist/es/storage/session'
-import { createLogger } from 'redux-logger'
+
+const createElectronStorage = window.require('redux-persist-electron-storage')
+const ElectronStore = window.require('electron-store')
+const electronStore = new ElectronStore({ 'name': 'ReduxStore' })
 
 const composeEnhancers =
   typeof window === 'object' &&
@@ -16,7 +18,7 @@ const middlewares = [
 ]
 
 if (process.env.NODE_ENV === 'development') {
-  middlewares.push(createLogger())
+  middlewares.push(require('redux-logger').createLogger())
 }
 
 const enhancer = composeEnhancers(
@@ -25,7 +27,9 @@ const enhancer = composeEnhancers(
 
 const persistConfig = {
   key: 'root',
-  storage,
+  storage: createElectronStorage({
+    electronStore
+  }),
   transforms: [immutableTransform()],
   whitelist: ['user', 'files']
 }

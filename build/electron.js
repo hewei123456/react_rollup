@@ -17,7 +17,8 @@ app.whenReady().then(() => {
         nodeIntegration: true
       }
     },
-    baseUrl
+    // baseUrl
+    join(__dirname, './index.html')
   )
 
   ipcMain.on('toggle-dev-tools', () => {
