@@ -14,8 +14,25 @@ import path from 'path'
 export default {
   input: 'src/index.js',
   output: {
-    file: 'build/app.js',
-    format: 'iife'
+    dir: 'build',
+    format: 'amd'
+  },
+  manualChunks: {
+    vendor: [
+      '@babel/polyfill',
+      'react',
+      'react-dom',
+      'classnames',
+      'react-router-dom',
+      'redux',
+      'redux-thunk',
+      'react-redux', 'redux-persist',
+      'redux-persist-transform-immutable',
+      'redux-logger',
+      'antd',
+      '@ant-design/icons',
+      'react-custom-scrollbars'
+    ]
   },
   external: [
     {
