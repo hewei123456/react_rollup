@@ -38,4 +38,8 @@ const persistedReducer = persistReducer(persistConfig, reducer)
 const store = createStore(persistedReducer, enhancer)
 const persistor = persistStore(store)
 
+store.subscribe(() => {
+  console.log(123)
+})
+
 export { store, persistor }
