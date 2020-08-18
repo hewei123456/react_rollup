@@ -23,6 +23,9 @@ module.exports = {
     'react'
   ],
   'rules': {
+    'space-before-function-paren': [2, 'always'], // 函数定义时括号前面要不要有空格
+    'object-curly-spacing': ['error', 'always'],
+    'array-bracket-spacing': ['error', 'never'],
     'space-infix-ops': 2,
     'quotes': [2, 'single'], // 单引号
     'no-console': 0, // 不禁用console
@@ -32,13 +35,6 @@ module.exports = {
     'no-irregular-whitespace': 0, // 不规则的空白不允许
     'no-trailing-spaces': 1, // 一行结束后面有空格就发出警告
     'eol-last': 0, // 文件以单一的换行符结束
-    /*'no-unused-vars': [
-      2,
-      {
-        'vars': 'all',
-        'args': 'after-used'
-      }
-    ],*/
     'no-unused-vars': 'off', // 不能有声明后未被使用的变量或参数
     'no-shadow': 'off',
     'no-underscore-dangle': 0, // 标识符不能以_开头或结尾
@@ -70,10 +66,7 @@ module.exports = {
     'react/jsx-indent-props': [2, 2], // 验证JSX中的props缩进
     'react/jsx-key': 2, // 在数组或迭代器中验证JSX具有key属性
     'react/jsx-max-props-per-line': [2, { 'maximum': 1 }], //  限制JSX中单行上的props的最大数量
-    'react/jsx-first-prop-new-line': [
-      2,
-      'multiline'
-    ],
+    'react/jsx-first-prop-new-line': [2, 'multiline'],
     'react/jsx-no-bind': 0, // JSX中不允许使用箭头函数和bind
     'react/jsx-no-duplicate-props': 2, // 防止在JSX中重复的props
     'react/jsx-no-literals': 0, // 防止使用未包装的JSX字符串
@@ -99,15 +92,19 @@ module.exports = {
     'react/no-deprecated': 1, // 不使用弃用的方法
     'react/jsx-equals-spacing': 2, // 在JSX属性中强制或禁止等号周围的空格
     'no-unreachable': 1, // 不能有无法执行的代码
-    'comma-dangle': 2, // 对象字面量项尾不能有逗号
+    'comma-dangle': 2, // 对象字面量项尾不能有逗号,
+    'comma-spacing': 2, // 逗号前后的空格
     'no-mixed-spaces-and-tabs': 0, // 禁止混用tab和空格
     'prefer-arrow-callback': 0, // 比较喜欢箭头回调
     'arrow-parens': 0, // 箭头函数用小括号括起来
-    'arrow-spacing': 0 // =>的前/后括号
+    'arrow-spacing': 2 // =>的前/后括号
   },
   'settings': {
     'import/ignore': [
       'node_modules'
-    ]
+    ],
+    'react': {
+      'version': 'detect'
+    }
   }
 }
