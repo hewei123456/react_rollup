@@ -97,7 +97,7 @@
     "uuid": "^8.2.0"
   },
   "scripts": {
-    "build:dev": "rollup -c rollup.config.js -w",
+    "build:dev": "rollup -c rollup.dev.config.js -w",
     "start": "npm-run-all --parallel build:dev",
     "build": "rollup -c rollup.prod.config.js",
     "electron": "nodemon --exec \"electron .\"",
