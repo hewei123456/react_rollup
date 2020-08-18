@@ -3,6 +3,8 @@ const { app, Menu, ipcMain } = require('electron')
 const menuTemplate = require('./main/menuTemplate')
 const createWindow = require('./main/createWindow')
 
+var mainWindow, settingsWindow
+
 app.whenReady().then(() => {
 
   const menu = Menu.buildFromTemplate(menuTemplate)
@@ -12,7 +14,7 @@ app.whenReady().then(() => {
       width: 1350,
       height: 750
     },
-    join(__dirname, './index.html')
+    join(__dirname, './views/main/index.html')
   )
 
   ipcMain.on('toggle-dev-tools', () => {
@@ -30,7 +32,7 @@ app.whenReady().then(() => {
     )
 
     settingsWindow.removeMenu()
-    settingsWindow.webContents.toggleDevTools()
+    // settingsWindow.webContents.toggleDevTools()
   })
 
   ipcMain.on('close-settings-window', () => {

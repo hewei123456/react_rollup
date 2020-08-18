@@ -1,7 +1,6 @@
 {
   "watch": [
     "./build/main/**",
-    "./build/views/**",
     "./build/electron.js",
     "./build/index.html"
   ]

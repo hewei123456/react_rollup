@@ -13,15 +13,10 @@ import alias from 'rollup-plugin-alias'
 import path from 'path'
 
 export default {
-  input: 'src/index.js',
+  input: `src/views/${process.env.file}/index.js`,
   output: {
-    dir: 'build',
-    format: 'amd'
-  },
-  manualChunks (id) {
-    if (id.includes('node_modules')) {
-      return 'vendor'
-    }
+    file: `build/views/${process.env.file}/index.js`,
+    format: 'iife'
   },
   external: [
     {

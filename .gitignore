@@ -10,7 +10,7 @@
 
 # production
 /dist
-/build/index.js
+/build/views/**/index.js
 /build/vendor-*.js
 
 # misc
