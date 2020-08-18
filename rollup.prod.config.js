@@ -6,7 +6,7 @@ import { terser } from 'rollup-plugin-terser'
 import config from './rollup.dev.config'
 
 // Inject the production settings.
-config.input = `src/${process.env.file}.js`
+config.input = `src/views/${process.env.file}/index.js`
 config.output = {
   file: `build/views/${process.env.file}/index.js`,
   format: 'iife'

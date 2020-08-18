@@ -107,6 +107,7 @@
   },
   "scripts": {
     "start": "npm-run-all --parallel dev:main dev:webrtc",
+    "build": "npm-run-all --parallel build:main build:webrtc",
     "dev:main": "cross-env file=main rollup -c rollup.dev.config.js -w",
     "build:main": "cross-env file=main rollup -c rollup.prod.config.js",
     "dev:webrtc": "cross-env file=webrtc rollup -c rollup.dev.config.js -w",
