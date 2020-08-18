@@ -3,8 +3,6 @@ const { app, Menu, ipcMain } = require('electron')
 const menuTemplate = require('./main/menuTemplate')
 const createWindow = require('./main/createWindow')
 
-const baseUrl = 'http://localhost:3000'
-
 app.whenReady().then(() => {
 
   const menu = Menu.buildFromTemplate(menuTemplate)
@@ -12,12 +10,8 @@ app.whenReady().then(() => {
 
   mainWindow = createWindow({
       width: 1350,
-      height: 750,
-      webPreferences: {
-        nodeIntegration: true
-      }
+      height: 750
     },
-    // baseUrl
     join(__dirname, './index.html')
   )
 
